@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kërko Film</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 700px;
+      margin: 40px auto;
+      background: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    #rezultati, #filmat-lokal {
+      margin-top: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    img { max-width: 200px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Kërko një film nga OMDb</h1>
+  <input type="text" id="emriFilm" placeholder="Shkruaj emrin..." />
+  <button onclick="kerkoFilm()">Kërko</button>
+
+  <div id="rezultati"></div>
+
+  <h2>📁 Lista e filmave lokal</h2>
+  <div id="filmat-lokal"></div>
+
+  <script>
+    function kerkoFilm() {
+      const emri = document.getElementById('emriFilm').value.trim();
+      if (!emri) return alert('Shkruani emrin e filmit!');
+      const apiKey = '219f08c2';
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(emri)}`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data.Response === "True") {
+            document.getElementById('rezultati').innerHTML = `
+              <h3>${data.Title} (${data.Year})</h3>
+              <p><strong>Aktorët:</strong> ${data.Actors}</p>
+              <p><strong>Plot:</strong> ${data.Plot}</p>
+              <img src="${data.Poster}" />
+            `;
+          } else {
+            document.getElementById('rezultati').innerHTML = "Filmi nuk u gjet!";
+          }
+        });
+    }
+
+    function merrFilmatLokale() {
+      fetch('/api/filma')
+        .then(res => res.json())
+        .then(data => {
+          const div = document.getElementById('filmat-lokal');
+          div.innerHTML = data.map(film =>
+            `<p><strong>${film.titulli}</strong> (${film.viti}) - ${film.zhanri}</p>`
+          ).join("");
+        });
+    }
+
+    merrFilmatLokale();
+  </script>
+</body>
+</html>

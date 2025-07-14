@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "titulli": "Inception",
+        "viti": 2010,
+        "zhanri": "Sci-Fi"
+    },
+    {
+        "id": 2,
+        "titulli": "The Matrix",
+        "viti": 1999,
+        "zhanri": "Action"
+    },
+    {
+        "id": 3,
+        "titulli": "Interstellar",
+        "viti": 2014,
+        "zhanri": "Sci-Fi"
+    },
+    {
+        "id": 4,
+        "titulli": "The Dark Knight",
+        "viti": 2008,
+        "zhanri": "Action"
+    },
+    {
+        "id": 5,
+        "titulli": "Forrest Gump",
+        "viti": 1994,
+        "zhanri": "Drama"
+    },
+    {
+        "id": 6,
+        "titulli": "Fight Club",
+        "viti": 1999,
+        "zhanri": "Drama"
+    },
+    {
+        "id": 7,
+        "titulli": "Pulp Fiction",
+        "viti": 1994,
+        "zhanri": "Crime"
+    },
+    {
+        "id": 8,
+        "titulli": "Gladiator",
+        "viti": 2000,
+        "zhanri": "Action"
+    },
+    {
+        "id": 9,
+        "titulli": "Titanic",
+        "viti": 1997,
+        "zhanri": "Romance"
+    },
+    {
+        "id": 10,
+        "titulli": "Shutter Island",
+        "viti": 2010,
+        "zhanri": "Thriller"
+    }
+]
